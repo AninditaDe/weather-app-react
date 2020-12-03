@@ -1,13 +1,16 @@
 import * as React from "react";
 
-const DisplayData = (props) => {
-  console.log(props);
+const DisplayData = ({ data = [] }) => {
+  console.log(data);
   //const arrWeatherData = [...props.data];
   return (
     <div>
-      {props.data.map((record, key) => (
-        <li key={key}>{record}</li>
-      ))}
+      {data.map((record, key) => {
+        if (record) {
+          return <li key={key}>{record}</li>;
+        }
+        return null;
+      })}
     </div>
   );
 };
