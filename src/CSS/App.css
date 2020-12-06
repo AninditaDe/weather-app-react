@@ -1,0 +1,12 @@
+.App-content {
+  background-color: gray;
+  width: 100%;
+  padding-top: 5%;
+  position: relative;
+  text-align: center;
+}
+.title {
+  font-size: 50px;
+  font-weight: 500;
+  color: whitesmoke;
+}

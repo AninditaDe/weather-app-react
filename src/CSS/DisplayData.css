@@ -1,0 +1,11 @@
+.placeName {
+  font-size: 120px;
+  margin: 0;
+}
+.weather-data {
+  font-size: x-large;
+}
+.font-color {
+  color: #1a2228;
+  font-weight: 500;
+}
