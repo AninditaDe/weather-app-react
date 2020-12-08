@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
 import moment from "moment";
 
-import DisplayData from "./DisplayData";
+import DisplayData from "./components/DisplayData";
 import "./CSS/WeatherApiHooks.css";
-
 
 const fetchData = (urlLink, setItem, setError, error) => {
   fetch(urlLink)
@@ -36,7 +35,7 @@ const fetchData = (urlLink, setItem, setError, error) => {
     });
 };
 
-function WeatherApiHooks({fullUrl}) {
+function WeatherApiHooks({ fullUrl }) {
   const [data, setItem] = useState([]);
   const [error, setError] = useState("");
 
