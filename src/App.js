@@ -1,23 +1,26 @@
-import * as React from "react";
+import React from "react";
 
-import SearchBox from "./SearchBox";
-import "./CSS/SearchBox.css";
-import "./CSS/App.css";
+import SearchBox from "./components/SearchBox";
+import "./Styles/SearchBox.css";
+import "./Styles/App.css";
+import "./Styles/WeatherRecords.css";
 
-const imageUrl = "./images/Main-Animated.txt";
+const imageUrl = "./images/main.jpg";
+
 const style = {
   backgroundImage: "url(" + imageUrl + ")",
   backgroundRepeat: "no-repeat",
   backgroundSize: "cover",
+  height: "100vh",
 };
 
 const App = () => (
   <>
     <div className="App-content">
-      <p className="title">Explore Anindita's Weather Forecast App</p>
+      <p className="title">Explore Anindita's Weather Forecasting App</p>
       <SearchBox />
     </div>
-    <div className="weather-records" style={style}></div>
+    <div style={style}></div>
   </>
 );
 

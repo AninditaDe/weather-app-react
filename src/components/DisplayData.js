@@ -1,36 +1,48 @@
-import * as React from "react";
-import "./CSS/DisplayData.css";
-// import "font-awesome/css/font-awesome.min.css";
+import React from "react";
+import "../Styles/DisplayData.css";
+import "../Styles/WeatherRecords.css";
+import "font-awesome/css/font-awesome.min.css";
 let FontAwesomeIcon = require("react-fontawesome");
 
+let style = {};
+let imageUrlCoudy = "./images/cloud.jpg";
+let imageUrlRainy = "./images/rainy.jpg";
+let imageUrlSnowy = "./images/snow.jpeg";
+let imageUrlMist = "./images/mist.jpg";
+let imageUrlSmoke = "./images/smoke.jpg";
+let imageUrlClear = "./images/clear.png";
+let imageUrlFog = "./images/fog.jpeg";
+let imageUrlHaze = "./images/haze.jpeg";
+let imageUrl = "";
+
 const changeBackGroundImage = (weatherStatus) => {
-  let style = {};
-  let imageUrlCoudy = "./images/cloudy-day-sky.jpg";
-  let imageUrlRainy = "./images/rainy-day.jpg";
-  let imageUrlSnowy = "./images/snow.jpeg";
-  let imageUrlMist = "./images/mist.jpg";
-  let imageUrlSmoke = "./images/smoke.jpg";
-  let imageUrlClear = "./images/sunnyday.png";
-  let imageUrlFog = "./images/fog.jpeg";
-  let imageUrl = "";
-  // TODO: use a switch statement here
-  // TODO: encapsulate in an external function outside of the react component
-  if (weatherStatus === "Clouds") {
-    imageUrl = imageUrlCoudy;
-  } else if (weatherStatus === "Rain") {
-    imageUrl = imageUrlRainy;
-  } else if (weatherStatus === "Snow") {
-    imageUrl = imageUrlSnowy;
-  } else if (weatherStatus === "Mist") {
-    imageUrl = imageUrlMist;
-  } else if (weatherStatus === "Smoke") {
-    imageUrl = imageUrlSmoke;
-  } else if (weatherStatus === "Clear") {
-    imageUrl = imageUrlClear;
-  } else if (weatherStatus === "Fog") {
-    imageUrl = imageUrlFog;
-  } else {
-    imageUrl = "./images/Main-Animated.txt";
+  switch (weatherStatus) {
+    case "Clouds":
+      imageUrl = imageUrlCoudy;
+      break;
+    case "Rain":
+      imageUrl = imageUrlRainy;
+      break;
+    case "Snow":
+      imageUrl = imageUrlSnowy;
+      break;
+    case "Mist":
+      imageUrl = imageUrlMist;
+      break;
+    case "Smoke":
+      imageUrl = imageUrlSmoke;
+      break;
+    case "Clear":
+      imageUrl = imageUrlClear;
+      break;
+    case "Fog":
+      imageUrl = imageUrlFog;
+      break;
+    case "Haze":
+      imageUrl = imageUrlHaze;
+      break;
+    default:
+      imageUrl = "./images/main.jpg";
   }
   style = {
     backgroundImage: "url(" + imageUrl + ")",
@@ -38,10 +50,10 @@ const changeBackGroundImage = (weatherStatus) => {
   return style;
 };
 
-const DisplayData = ({ data = {} }) => {
-  console.log("data", data);
+const DisplayData = ({ data = [] }) => {
+  //console.log("data", data);
 
-  const { place, date, temp, weather, desc } = data;
+  const [place, date, temp, weather, desc] = data;
 
   let style = changeBackGroundImage(weather);
 

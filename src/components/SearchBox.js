@@ -1,27 +1,29 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import UrlBuilder from "./UrlBuilder";
-// TODO: change css folder name to styles
-import "./CSS/SearchBox.css";
+import Debouncer from "../components/Debouncer";
+import UrlBuilder from "../components/UrlBuilder";
+import "../Styles/SearchBox.css";
 
 export default function SearchBox() {
   const [input, setInput] = useState("");
   const [isEntered, setEntered] = useState(false);
+  const [debouncedState, setDebouncedState] = Debouncer(input);
 
   const handleChange = (e) => {
-    // Do we really need this?
-    // preventDefault is  for preventing a form submit
-    e.preventDefault();
     setInput(e.target.value);
+    setDebouncedState(e.target.value);
   };
 
   const handleKeyDown = (e) => {
     if (input && e.keyCode === 13) {
+      console.log(debouncedState);
       setEntered(true);
     }
     if (e.keyCode === 8) {
       setEntered(false);
+      setInput("");
+      setDebouncedState("");
     }
   };
 
@@ -36,7 +38,7 @@ export default function SearchBox() {
         onKeyDown={handleKeyDown}
       />
       {/*  isEnterd can be more explicit */}
-      {isEntered && <UrlBuilder cityName={input} />}
+      {isEntered && <UrlBuilder cityName={debouncedState} />}
     </>
   );
 }

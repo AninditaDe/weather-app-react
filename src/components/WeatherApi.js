@@ -1,5 +1,5 @@
 import * as React from "react";
-import DisplayData from "./CSS/DisplayData";
+import DisplayData from "../components/DisplayData";
 
 export default class WeatherApi extends React.Component {
   constructor(props) {
