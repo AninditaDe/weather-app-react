@@ -1,64 +1,51 @@
 import React from "react";
-import "../Styles/DisplayData.css";
-import "../Styles/WeatherRecords.css";
-import "font-awesome/css/font-awesome.min.css";
-let FontAwesomeIcon = require("react-fontawesome");
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+//let FontAwesomeIcon = require("react-fontawesome");
 
-let style = {};
-let imageUrlCoudy = "./images/cloud.jpg";
-let imageUrlRainy = "./images/rainy.jpg";
-let imageUrlSnowy = "./images/snow.jpeg";
-let imageUrlMist = "./images/mist.jpg";
-let imageUrlSmoke = "./images/smoke.jpg";
-let imageUrlClear = "./images/clear.png";
-let imageUrlFog = "./images/fog.jpeg";
-let imageUrlHaze = "./images/haze.jpeg";
-let imageUrl = "";
+import "../styles/DisplayData.css";
+import "../styles/WeatherRecords.css";
+
+let backGroundChanger = "";
 
 const changeBackGroundImage = (weatherStatus) => {
   switch (weatherStatus) {
     case "Clouds":
-      imageUrl = imageUrlCoudy;
+      backGroundChanger = "displayImages-clouds";
       break;
     case "Rain":
-      imageUrl = imageUrlRainy;
+      backGroundChanger = "displayImages-rainy";
       break;
     case "Snow":
-      imageUrl = imageUrlSnowy;
+      backGroundChanger = "displayImages-snow";
       break;
     case "Mist":
-      imageUrl = imageUrlMist;
+      backGroundChanger = "displayImages-mist";
       break;
     case "Smoke":
-      imageUrl = imageUrlSmoke;
+      backGroundChanger = "displayImages-smoke";
       break;
     case "Clear":
-      imageUrl = imageUrlClear;
+      backGroundChanger = "displayImages-clear";
       break;
     case "Fog":
-      imageUrl = imageUrlFog;
+      backGroundChanger = "displayImages-fog";
       break;
     case "Haze":
-      imageUrl = imageUrlHaze;
+      backGroundChanger = "displayImages-haze";
       break;
     default:
-      imageUrl = "./images/main.jpg";
+      backGroundChanger = "displayImages-main";
   }
-  style = {
-    backgroundImage: "url(" + imageUrl + ")",
-  };
-  return style;
+  return backGroundChanger;
 };
 
 const DisplayData = ({ data = [] }) => {
-  //console.log("data", data);
-
   const [place, date, temp, weather, desc] = data;
 
-  let style = changeBackGroundImage(weather);
+  let bgChanger = changeBackGroundImage(weather);
 
   return (
-    <div className="weather-records displayImages" style={style}>
+    <div className={`weather-records displayImages ${bgChanger}`}>
       <p className="placeName font-color">
         <FontAwesomeIcon className="fas fa-map-marker"></FontAwesomeIcon>
         {place}

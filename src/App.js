@@ -1,18 +1,9 @@
 import React from "react";
 
 import SearchBox from "./components/SearchBox";
-import "./Styles/SearchBox.css";
-import "./Styles/App.css";
-import "./Styles/WeatherRecords.css";
-
-const imageUrl = "./images/main.jpg";
-
-const style = {
-  backgroundImage: "url(" + imageUrl + ")",
-  backgroundRepeat: "no-repeat",
-  backgroundSize: "cover",
-  height: "100vh",
-};
+import "./styles/SearchBox.css";
+import "./styles/App.css";
+import "./styles/WeatherRecords.css";
 
 const App = () => (
   <>
@@ -20,7 +11,11 @@ const App = () => (
       <p className="title">Explore Anindita's Weather Forecasting App</p>
       <SearchBox />
     </div>
-    <div style={style}></div>
+    {/*Unable to load the man background image, so commented this below code,
+     If I load the main image the records are not displaying, it is hiding behind */}
+
+    {/* <div className="weather-records displayImages displayImages-main"></div> */}
+    <div></div>
   </>
 );
 

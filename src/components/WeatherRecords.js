@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import DisplayData from "../components/DisplayData";
 import { FormatDate, ConvertKelvinTemp } from "../Utils/Utils";
-import "../Styles/WeatherRecords.css";
+import "../styles/WeatherRecords.css";
 
 const fetchData = (urlLink, setItem, setError, error) => {
   fetch(urlLink)

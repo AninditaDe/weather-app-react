@@ -2,7 +2,7 @@ import { useCallback, useState } from "react";
 //import _ from "loadash";
 var _ = require("lodash");
 
-const Debouncer = (obj = null, wait = 5000) => {
+const useDebouncer = (obj = null, wait = 500) => {
   const [state, setState] = useState(obj);
   const debounce = useCallback(
     _.debounce((_prop) => {
@@ -16,4 +16,4 @@ const Debouncer = (obj = null, wait = 5000) => {
   };
   return [state, setDebouncedState];
 };
-export default Debouncer;
+export default useDebouncer;

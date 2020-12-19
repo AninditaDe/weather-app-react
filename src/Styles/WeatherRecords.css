@@ -1,5 +1,4 @@
 .displayImages {
-  /* background-image: url("../images/Main.jpg"); */
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -12,4 +11,31 @@
   padding-left: 0%;
   width: 100%;
   height: 100vh;
+}
+.displayImages-main {
+  background-image: url("../images/main.jpg");
+}
+.displayImages-clouds {
+  background-image: url("../images/cloud.jpg");
+}
+.displayImages-snow {
+  background-image: url("../images/snow.jpeg");
+}
+.displayImages-rainy {
+  background-image: url("../images/rainy.jpg");
+}
+.displayImages-mist {
+  background-image: url("../images/mist.jpg");
+}
+.displayImages-smoke {
+  background-image: url("../images/smoke.jpg");
+}
+.displayImages-clear {
+  background-image: url("../images/clear.png");
+}
+.displayImages-fog {
+  background-image: url("../images/fog.jpeg");
+}
+.displayImages-haze {
+  background-image: url("../images/haze.jpeg");
 }

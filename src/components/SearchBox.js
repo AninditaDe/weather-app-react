@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import Debouncer from "../components/Debouncer";
 import UrlBuilder from "../components/UrlBuilder";
-import "../Styles/SearchBox.css";
+import "../styles/SearchBox.css";
 
 export default function SearchBox() {
   const [input, setInput] = useState("");
@@ -22,8 +22,6 @@ export default function SearchBox() {
     }
     if (e.keyCode === 8) {
       setEntered(false);
-      setInput("");
-      setDebouncedState("");
     }
   };
 
