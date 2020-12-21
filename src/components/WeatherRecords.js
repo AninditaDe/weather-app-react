@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import moment from "moment";
 
-import DisplayData from "./DisplayData";
-import "./CSS/WeatherApiHooks.css";
-
+import DisplayData from "../components/DisplayData";
+import { FormatDate, ConvertKelvinTemp } from "../Utils/Utils";
+import "../styles/WeatherRecords.css";
 
 const fetchData = (urlLink, setItem, setError, error) => {
   fetch(urlLink)
@@ -27,16 +26,14 @@ const fetchData = (urlLink, setItem, setError, error) => {
         const record = [location, date, temp, main, description];
 
         setItem([...record]);
-        console.log("result.record", record);
       }
     })
     .catch((error) => {
-      console.log("error: " + error);
       setError(error.message);
     });
 };
 
-function WeatherApiHooks({fullUrl}) {
+function WeatherRecords({ fullUrl }) {
   const [data, setItem] = useState([]);
   const [error, setError] = useState("");
 
@@ -55,13 +52,4 @@ function WeatherApiHooks({fullUrl}) {
   );
 }
 
-// TODO: move this to a folder called utils
-function FormatDate(date) {
-  return moment(date * 1000).format("DD-MMM-YYYY");
-}
-
-function ConvertKelvinTemp(temp) {
-  return Math.round(temp - 273.15);
-}
-
-export default WeatherApiHooks;
+export default WeatherRecords;

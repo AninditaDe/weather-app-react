@@ -1,5 +1,5 @@
 import * as React from "react";
-import DisplayData from "./CSS/DisplayData";
+import DisplayData from "../components/DisplayData";
 
 export default class WeatherApi extends React.Component {
   constructor(props) {
@@ -11,7 +11,7 @@ export default class WeatherApi extends React.Component {
     };
   }
   componentDidMount() {
-    const apiKey = "de93b9fc1363db83f12e17eacffce8f0";
+    const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
     const WEATHER_API = new URL(
       "https://api.openweathermap.org/data/2.5/weather?q=London"
     );

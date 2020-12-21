@@ -1,23 +1,22 @@
-import * as React from "react";
-import "./CSS/App.css";
-import SearchBox from "./SearchBox";
-import "./CSS/SearchBox.css";
+import React from "react";
 
-export default class App extends React.Component {
-  render() {
-    let imageUrl = "./images/Main-Animated.txt";
-    let style = {
-      backgroundImage: "url(" + imageUrl + ")",
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "cover",
-    };
-    return (
-      <div className="weather-records" style={style}>
-        <div className="App-content">
-          <p className="title">Explore Anindita's Weather Forecast App</p>
-          <SearchBox />
-        </div>
-      </div>
-    );
-  }
-}
+import SearchBox from "./components/SearchBox";
+import "./styles/SearchBox.css";
+import "./styles/App.css";
+import "./styles/WeatherRecords.css";
+
+const App = () => (
+  <>
+    <div className="App-content">
+      <p className="title">Explore Anindita's Weather Forecasting App</p>
+      <SearchBox />
+    </div>
+    {/*Unable to load the man background image, so commented this below code,
+     If I load the main image the records are not displaying, it is hiding behind */}
+
+    {/* <div className="weather-records displayImages displayImages-main"></div> */}
+    <div></div>
+  </>
+);
+
+export default App;
